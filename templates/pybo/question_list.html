@@ -1,0 +1,38 @@
+
+
+{% extends 'base.html' %}
+{% block  content %}
+<div class="container my-3">
+    <table class='table'>
+        <thead>
+            <tr class="thead-dark">
+                <td>
+                    번호
+                </td>
+                <td>
+                    제목
+                </td>
+                <td>
+                    작성일시
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% for  question in question_list %}
+                <td>
+                    {{forloop.counter}}
+                </td>
+                <td>
+                    <a href='{% url "pybo:detail" question.id %}'>{{question.subject}}</a>
+                </td>
+                <td>
+                    {{question.create_date}}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="{% url 'pybo:question_create' %}">질문 등록하기</a>
+</div>
+{% endblock %}
