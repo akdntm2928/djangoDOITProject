@@ -13,9 +13,13 @@ urlpatterns = [
     path('answer/modify/<int:answer_id>',views.answer_modify,name='answer_modify'),
     path('answer/delete/<int:answer_id>',views.answer_delete,name='answer_delete'),
 
+    path('vote/question/<int:question_id>/', views.vote_question,name="vote_question"),
+    path('vote/answer/<int:answer_id>/',views.vote_answer,name="vote_answer"),
+
     path('comment/create/question/<int:question_id>/',views.comment_create_question,name="comment_create_question"),
     path('comment/modify/question/<int:comment_id>/',views.comment_modify_question,name="comment_modify_question"),
     path('comment/delete/question/<int:comment_id>/',views.comment_delete_question,name="comment_delete_question"),
+
 
     path('comment/create/answer/<int:answer_id>/',views.comment_create_answer,name="comment_create_answer"),
     path('comment/modify/answer/<int:comment_id>/',views.comment_modify_answer,name="comment_modify_answer"),
